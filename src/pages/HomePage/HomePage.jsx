@@ -23,9 +23,10 @@ const HomePage = () => {
       try {
         const promise = await api.get("/Evento");
         const dados = await promise.data;
+        console.log("DADOS");
         console.log(dados);
-        setNextEvents(dados); //atualiza o state
-
+        setNextEvents(dados)
+        console.log(nextEvents);
       } catch (error) {
         console.log("não trouxe os próximos eventos, verifique lá!");
         // setNotifyUser({
@@ -37,8 +38,8 @@ const HomePage = () => {
         //   showMessage: true,
         // });
       }
+      
     }
-
     getNextEvents(); //chama a função
   }, []);
 
