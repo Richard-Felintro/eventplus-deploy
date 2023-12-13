@@ -5,27 +5,21 @@ import { Input, Button } from "../../components/FormComponents/FormComponents";
 import loginImage from "../../assets/images/login.svg";
 import api, { loginResource } from "../../Services/Service";
 import { useNavigate } from "react-router-dom";
+import { nextEventResource } from "../../Services/Service";
 
 import "./LoginPage.css";
 import { UserContext, userDecodeToken } from "../../context/AuthContext";
 
 const LoginPage = () => {
-  const [user, setUser] = useState({ email: "edu@admin.com", senha: "123456" });
+  const [user, setUser] = useState({ email: "", senha: "" });
   //importa os dados globais do usuário
   const { userData, setUserData } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    async function teste() {
-      const promise = await api.get(nextEventResource);
-      const dados = await promise.data;
-      console.log("DADOS");
-      console.log(dados);
-      if (userData.nome) {
-        navigate("/");
-      }
+    if (userData.nome) {
+      navigate("/");
     }
-    teste();
   }, [userData]);
 
   async function handleSubmit(e) {
