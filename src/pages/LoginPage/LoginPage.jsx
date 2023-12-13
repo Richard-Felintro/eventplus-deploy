@@ -30,7 +30,7 @@ const LoginPage = () => {
       
       
       try {
-        const promise = await api.post(loginResource, {
+        const promise = await api.post("/Login", {
           email: user.email,
           senha: user.senha,
         });
