@@ -17,7 +17,6 @@ const LoginPage = () => {
 
   useEffect(() => {
     async function teste() {
-      try{
         const promise = await api.get(nextEventResource);
         const dados = await promise.data;
         console.log("DADOS");
@@ -26,8 +25,6 @@ const LoginPage = () => {
           navigate("/");
         }
       }
-      catch{}
-    }
   }, [userData]);
 
   async function handleSubmit(e) {
