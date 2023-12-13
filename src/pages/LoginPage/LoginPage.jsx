@@ -17,14 +17,15 @@ const LoginPage = () => {
 
   useEffect(() => {
     async function teste() {
-        const promise = await api.get(nextEventResource);
-        const dados = await promise.data;
-        console.log("DADOS");
-        console.log(dados);
-        if (userData.nome) {
-          navigate("/");
-        }
+      const promise = await api.get(nextEventResource);
+      const dados = await promise.data;
+      console.log("DADOS");
+      console.log(dados);
+      if (userData.nome) {
+        navigate("/");
       }
+    }
+    teste();
   }, [userData]);
 
   async function handleSubmit(e) {
