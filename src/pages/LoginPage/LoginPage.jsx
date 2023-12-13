@@ -16,8 +16,17 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (userData.nome) {
-      navigate("/");
+    async function teste() {
+      try{
+        const promise = await api.get(nextEventResource);
+        const dados = await promise.data;
+        console.log("DADOS");
+        console.log(dados);
+        if (userData.nome) {
+          navigate("/");
+        }
+      }
+      catch{}
     }
   }, [userData]);
 
@@ -27,8 +36,6 @@ const LoginPage = () => {
     // validar usuário e senha:
     // tamanho mínimo de caracteres : 3
     if (user.email.length >= 3 && user.senha.length >= 3) {
-      
-      
       try {
         const promise = await api.post("/Login", {
           email: user.email,

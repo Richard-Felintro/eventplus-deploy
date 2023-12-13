@@ -21,7 +21,7 @@ const HomePage = () => {
   useEffect(() => {
     async function getNextEvents() {
       try {
-        const promise = await api.get("/Evento");
+        const promise = await api.get(nextEventResource);
         const dados = await promise.data;
         console.log("DADOS");
         console.log(dados);
